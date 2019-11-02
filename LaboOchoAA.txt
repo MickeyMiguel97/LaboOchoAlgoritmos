@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main(){
+    
+    int ArrInicio[]={0,1,2,3,3,5,5,6,8,8,12};
+    int ArrFin[]={6,4,13,5,8,7,9,10,11,12,14};
+    int n = sizeof(ArrInicio)/sizeof(ArrInicio[0]) ;
+    int ArrAux[n];
+    for(int a = 0; a < n; a++){
+        ArrAux[a] = 0;
+    }
+
+    for(int i = 0; i<11;i++){
+        for (int j=0; j< i ; j++){
+            if(ArrFin[j]<ArrInicio[i] && ArrAux[i]<ArrAux[j]){
+                ArrAux[i] = ArrAux[j];
+            }
+        }
+        ArrAux[i]++;
+    }
+    cout << "El máximo número de actividades que puede realizar una sola persona es: ";
+    cout << ArrAux[n-1];
+
+    return 0;
+}
